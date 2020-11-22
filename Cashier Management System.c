@@ -20,6 +20,7 @@ int main()
 {
 ezxml_t cashier = ezxml_parse_file("Cashier Data.xml"), Workers, name;
 const char *cName;
+
 printf("Hello, welcome to the Cashier database Management System!");
     printf("what would you like to do?");
     printf("Enter 1 to Add Cashier");
@@ -45,18 +46,7 @@ while ( val != 0)
     break;
     default: printf("Incorrect option entered, please try again!");
 }
-//void ezxml_open_tag(ezxml_root_t root, char *name, char **attr)// called when parser finds start of new tag
-ezxml_t ezxml_get(ezxml_t xml, ...)
-ezxml_t ezxml_add_child(ezxml_t xml, const char *name, size_t off)
-ezxml_t ezxml_new(const char *name)
-ezxml_t ezxml_set_attr(ezxml_t xml, const char *name, const char *value)
-ezxml_t ezxml_parse_str(char *s, size_t len)
-
-// inserts an existing tag into an ezxml structure
-ezxml_t ezxml_insert(ezxml_t xml, ezxml_t dest, size_t off)
-
-// removes a tag along with its subtags without freeing its memory
-ezxml_t ezxml_cut(ezxml_t xml);
+)
 
 // sets the character content for the given tag and returns the tag
 ezxml_t ezxml_set_txt(ezxml_t xml, const char *txt)
@@ -65,11 +55,13 @@ ezxml_t ezxml_set_txt(ezxml_t xml, const char *txt)
 void addCashier (void)
 {
     char tagAppend;
-    printf("Enter the tag which you wish to append");
+    printf("Enter the tag which you wish to append: \n");
     scanf(%c, &tagAppend);
-    if (ezxml_t ezxml_child(cashier, const char *tagAppend) != 0)
+    if (ezxml_child(cashier, &tagAppend) != 0)
     {
-        workers = ezxml_child(cashier, const char *tagAppend);
+        name = tagAppend;
+        workers = ezxml_child(cashier, &tagAppend);
+        ezxml_add_child(cashier, "name", size_t )
         ezxml_insert(cashier, Worker, size_t off);
     }
     else 
@@ -80,24 +72,33 @@ void addCashier (void)
 void removeCashier (void)
 {
     char tagExtraxt;
-    printf("Enter the tag which you wish to append");
+    printf("Enter the tag which you wish to append: \n");
     scanf(%c, &tagExtraxct);
-    if (ezxml_child(cashier, const char *tagExtract) != 0)
+    if (ezxml_child(cashier, "name") != 0)
     {
-        workers = ezxml_child(cashier, const char *tagAppend);
+        workers = ezxml_child(cashier, &tagExtract);
         ezxml_cut(cashier);
     }
-    ezxml_t ezxml_cut(ezxml_t xml);
 }
 
 void traverseCashier (void)
+{ 
+    int wName, dPoint;
+    printf("Enter the index of the worker");
+    scanf(%d, &wName);
+    printf("Enter the index of the worker's data point");
+    scanf(%d, &dPoint);
+    if (ezxml_get(cashier, "worker", dPoint, "info", wName, "name", wName, "Cashier_ID", -1) != NULL)
+    {      
+        printf("The information of the worker is: %s\n", ezxml_get(cashier, "worker", dPoint, "info", wName, "name", wName, "Cashier_ID", -1)->txt)
+    };         
+}
+void editCashier(void)
 {
-    char wName;
-    printf("Enter the name of the worker");
-    scanf(%c, &wName)
-    title = ezxml_get(cashier, "worker", 0, "info", 0, "name", -1);
     
 }
+
+
 //NB: This section is a test section!
 #include <stdio.h>
 #include "ezxml.h"
