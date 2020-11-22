@@ -7,7 +7,7 @@ uses cJson or ezxml library
 4. Traverse cashier.
 5. Edit Cashier.
 
-/*#include <stdio.h>
+#include <stdio.h>
 #include "ezxml.h"
 
 int main()
@@ -28,12 +28,16 @@ while ( != 0)
 
     switch val:
     case 1:
-
+    break;
     case 2:
+    break
     case 3:
+    break
     case 4:
+    break;
     case 5:
-    case 6:
+    break;
+    default: printf("Incorrect option entered, please try again!");
 
 }
 //void ezxml_open_tag(ezxml_root_t root, char *name, char **attr)// called when parser finds start of new tag
@@ -63,22 +67,10 @@ uses cJson or ezxml library
 4. Traverse cashier.
 5. Edit Cashier.
 */
+
+//NB: This section is a test sectio!
 #include <stdio.h>
 #include "ezxml.h"
-
-/*
-ezxml_t f1 = ezxml_parse_file("formula1.xml"), team, driver;
-const char *teamname;
-
-for (team = ezxml_child(f1, "team"); team; team = team->next) {
-    teamname = ezxml_attr(team, "name");
-    for (driver = ezxml_child(team, "driver"); driver; driver = driver->next) {
-        printf("%s, %s: %s\n", ezxml_child(driver, "name")->txt, teamname,
-               ezxml_child(driver, "points")->txt);
-    }
-}
-ezxml_free(f1);*/
-
 
 int main()
 {
