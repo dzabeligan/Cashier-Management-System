@@ -1,15 +1,21 @@
-/*
-cashier management app
+
+/*cashier management app
 uses cJson or ezxml library
 1. Add Cashier.
 2. Remove cashier.
 3. Suspend cashier.
 4. Traverse cashier.
 5. Edit Cashier.
+*/
 
 #include <stdio.h>
 #include "ezxml.h"
 
+void addCashier (void);
+void removeCashier (void);
+void suspendCashier (void);
+void traverseCashier (void);
+void editCashier (void);
 int main()
 {
 ezxml_t cashier = ezxml_parse_file("Cashier Data.xml"), Workers, name;
@@ -22,12 +28,12 @@ printf("Hello, welcome to the Cashier database Management System!");
     printf("Enter 4 to Add Cashier");
     printf("Enter 5 to Edit Cashier name");
 int val;
-while ( != 0)
+while ( val != 0)
 {
-    printf("what would you like to do?");
+    printf("Enter an option");
 
     switch val:
-    case 1:
+    case 1: 
     break;
     case 2:
     break
@@ -41,7 +47,7 @@ while ( != 0)
 
 }
 //void ezxml_open_tag(ezxml_root_t root, char *name, char **attr)// called when parser finds start of new tag
-/*ezxml_t ezxml_get(ezxml_t xml, ...)
+ezxml_t ezxml_get(ezxml_t xml, ...)
 ezxml_t ezxml_add_child(ezxml_t xml, const char *name, size_t off)
 ezxml_t ezxml_new(const char *name)
 ezxml_t ezxml_set_attr(ezxml_t xml, const char *name, const char *value)
@@ -55,20 +61,31 @@ ezxml_t ezxml_cut(ezxml_t xml)S
 
 // sets the character content for the given tag and returns the tag
 ezxml_t ezxml_set_txt(ezxml_t xml, const char *txt)
-}*/
+}
 
+void addCashier (void)
+{
+    printf("Enter the tag which you wish to append");
+    scanf(%c, &tagAppend);
+    if (ezxml_t ezxml_child(cashier, const char *tagAppend) != 0)
+    {
+        workers = ezxml_t ezxml_child(cashier, const char *tagAppend);
+        ezxml_t ezxml_insert(cashier, Worker, size_t off);
+    }
+    else 
+        print
+       
+}
 
-/*
-cashier management app
-uses cJson or ezxml library
-1. Add Cashier.
-2. Remove cashier.
-3. Suspend cashier.
-4. Traverse cashier.
-5. Edit Cashier.
-*/
+void removeCashier (void)
+{
+    printf("Enter the tag which you wish to append");
+    scanf(%c, &tagEdxtraxct);
+    ezxml_t ezxml_child(cashier, const char *tagExtract);
+    
+}
 
-//NB: This section is a test sectio!
+//NB: This section is a test section!
 #include <stdio.h>
 #include "ezxml.h"
 
