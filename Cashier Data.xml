@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Cashier_Database>
+  <Data category="Worker">
+    <Cashier>
+      <name>Alele Famous</name>
+      <Cashier_ID>004</Cashier_ID>
+    </Cashier>
+  </Data>
+</Cashier_Database>
+
+name of the first cashier in the first Data point
