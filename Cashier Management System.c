@@ -1,15 +1,16 @@
 
 /*cashier management app
-uses cJson or ezxml library
+uses libexpat or ezxml library
 1. Add Cashier.
 2. Remove cashier.
-3. Suspend cashier.
+3. Suspend cashier.//add another field to suspend
 4. Traverse cashier.
 5. Edit Cashier.
 */
-
 #include <stdio.h>
-#include "ezxml.h"
+#include <stdlib.h>
+#include <string.h>
+//#include "ezxml.h"
 
 void addCashier (void);
 void removeCashier (void);
@@ -33,87 +34,80 @@ while ( val != 0)
 {
     printf("Enter an option");
 
-    switch val:
+    switch (val)
+    {
     case 1: addCashier();
     break;
     case 2: removeCashier();
-    break
+    break;
     case 3: suspendCashier();
-    break
+    break;
     case 4: traverseCashier();
     break;
     case 5: editCashier();
     break;
     default: printf("Incorrect option entered, please try again!");
+    }
 }
-)
-
-// sets the character content for the given tag and returns the tag
-ezxml_t ezxml_set_txt(ezxml_t xml, const char *txt)
+    ezxml_free(cashier);
 }
 
 void addCashier (void)
 {
     char tagAppend;
+    int offSize;
     printf("Enter the tag which you wish to append: \n");
-    scanf(%c, &tagAppend);
-    if (ezxml_child(cashier, &tagAppend) != 0)
+    scanf("%c", &tagAppend);
+    printf("Enter the offset value: \n");
+    scanf("%c", &offSize);
+    if (ezxml_child(cashier, &tagAppend) != NULL)
     {
-        name = tagAppend;
-        workers = ezxml_child(cashier, &tagAppend);
-        ezxml_add_child(cashier, "name", size_t )
-        ezxml_insert(cashier, Worker, size_t off);
+        //ezxml_t *worker = ezxml_child(cashier, &tagAppend);
+        ezxml_add_child(cashier, &tagAppend, offSize );
+        //ezxml_insert(cashier, worker, offSize);
     }
-    else 
-        printf("");
-       
+    else
+        printf("Tag not found.");
 }
 
 void removeCashier (void)
 {
-    char tagExtraxt;
+    char tagExtract;
     printf("Enter the tag which you wish to append: \n");
-    scanf(%c, &tagExtraxct);
-    if (ezxml_child(cashier, "name") != 0)
+    scanf("%c", &tagExtract);
+    if (ezxml_child(cashier, &tagExtract) != NULL)
     {
-        workers = ezxml_child(cashier, &tagExtract);
         ezxml_cut(cashier);
     }
+    else
+        printf("Tag not found.");
 }
 
 void traverseCashier (void)
-{ 
+{
     int wName, dPoint;
     printf("Enter the index of the worker");
-    scanf(%d, &wName);
+    scanf("%d", &wName);
     printf("Enter the index of the worker's data point");
-    scanf(%d, &dPoint);
+    scanf("%d", &dPoint);
     if (ezxml_get(cashier, "worker", dPoint, "info", wName, "name", wName, "Cashier_ID", -1) != NULL)
-    {      
-        printf("The information of the worker is: %s\n", ezxml_get(cashier, "worker", dPoint, "info", wName, "name", wName, "Cashier_ID", -1)->txt)
-    };         
+    {
+        printf("The information of the worker is: %s\n", ezxml_get(cashier, "worker", dPoint, "info", wName, "name", wName, "Cashier_ID", -1)->txt);
+    };
 }
+
 void editCashier(void)
 {
-    
+
 }
 
-
-//NB: This section is a test section!
-#include <stdio.h>
-#include "ezxml.h"
-
-int main()
+void suspendCashier(void)
 {
-ezxml_t cName = ezxml_parse_file("Cashier Data.xml"), Cashier, info;
-const char *workerName;
 
-for (Cashier = ezxml_child(cName, "Cashier"); Cashier; Cashier = Cashier->next) {
-    workerName = ezxml_attr(Cashier, "Category");
-    for (info = ezxml_child(Cashier, "info"); info; info = info->next) {
-        printf("%s, %s: %s\n", ezxml_child(info, "name")->txt, workerName,
-               ezxml_child(Cashier, "Cashier_ID")->txt);
-    }
 }
-ezxml_free(cName);
-}
+
+/*void createNewXML()
+{
+    char
+    ezxml_t ezxml_new(const char *name);
+}*/
