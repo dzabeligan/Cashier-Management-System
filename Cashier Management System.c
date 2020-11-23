@@ -10,25 +10,27 @@ uses libexpat or ezxml library
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-//#include "ezxml.h"
 
-void addCashier (void);
-void removeCashier (void);
+#include "ezxml.h"
+
+
+void addCashier (ezxml_t cashier);
+void removeCashier (ezxml_t cashier);
 void suspendCashier (void);
-void traverseCashier (void);
+void traverseCashier (ezxml_t cashier);
 void editCashier (void);
 int main()
 {
-ezxml_t cashier = ezxml_parse_file("Cashier Data.xml"), Workers, name;
 const char *cName;
+ezxml_t cashier = ezxml_parse_file("Cashier Data.xml"), Workers, name;
 
 printf("Hello, welcome to the Cashier database Management System!");
-    printf("what would you like to do?");
-    printf("Enter 1 to Add Cashier");
-    printf("Enter 2 to Remove Cashier");
-    printf("Enter 3 to suspend Cashier");
-    printf("Enter 4 to Traverse Cashier");
-    printf("Enter 5 to Edit Cashier name");
+    printf("what would you like to do?\n");
+    printf("Enter 1 to Add Cashier\n");
+    printf("Enter 2 to Remove Cashier\n");
+    printf("Enter 3 to suspend Cashier\n");
+    printf("Enter 4 to Traverse Cashier\n");
+    printf("Enter 5 to Edit Cashier name\n");
 int val;
 while ( val != 0)
 {
@@ -36,13 +38,13 @@ while ( val != 0)
 
     switch (val)
     {
-    case 1: addCashier();
+    case 1: addCashier(cashier);
     break;
-    case 2: removeCashier();
+    case 2: removeCashier(cashier);
     break;
     case 3: suspendCashier();
     break;
-    case 4: traverseCashier();
+    case 4: traverseCashier(cashier);
     break;
     case 5: editCashier();
     break;
@@ -52,7 +54,7 @@ while ( val != 0)
     ezxml_free(cashier);
 }
 
-void addCashier (void)
+void addCashier (ezxml_t cashier)
 {
     char tagAppend;
     int offSize;
@@ -70,7 +72,7 @@ void addCashier (void)
         printf("Tag not found.");
 }
 
-void removeCashier (void)
+void removeCashier (ezxml_t cashier)
 {
     char tagExtract;
     printf("Enter the tag which you wish to append: \n");
@@ -83,7 +85,7 @@ void removeCashier (void)
         printf("Tag not found.");
 }
 
-void traverseCashier (void)
+void traverseCashier (ezxml_t cashier)
 {
     int wName, dPoint;
     printf("Enter the index of the worker");
